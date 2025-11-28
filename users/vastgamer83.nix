@@ -3,18 +3,19 @@ let
 	dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	configs = {
-		alacritty = "alacritty";
+		kitty = "kitty";
 		hypr = "hypr";
 		nvim = "nvim";
 		rofi = "rofi";
 		scripts = "scripts";
 		tmux = "tmux";
 		waybar = "waybar";
+		yazi = "yazi";
 	};
 in
 {
-	home.username = "jsmith-entity";
-	home.homeDirectory = "/home/jsmith-entity";
+	home.username = "vastgamer83";
+	home.homeDirectory = "/home/vastgamer83";
 	home.stateVersion = "25.05";
 
 	# Default shell - zsh
@@ -40,8 +41,12 @@ in
 		tmux
 		rofi
 		waybar
-		oh-my-zsh
 		fzf
 		wl-clipboard
+		yazi
+		neofetch
+		gnumake
+
+		steam
 	];
 }

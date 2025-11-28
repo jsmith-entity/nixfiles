@@ -50,6 +50,14 @@
       tree
     ];
   };
+  users.users.vastgamer83 = {
+	shell = pkgs.zsh;
+	isNormalUser = true;
+	extraGroups = [ "wheel" ];
+	packages = with pkgs; [
+	  tree
+	];
+  };
 
   programs.gnupg.agent.enable = true;
 
@@ -59,7 +67,7 @@
     hyprland
     vim
     git
-    alacritty
+	kitty
     wget
 	unzip
 	gcc
@@ -69,8 +77,7 @@
 
 
   fonts.packages = with pkgs; [
-	jetbrains-mono
-	nerd-fonts.jetbrains-mono
+	iosevka
 	noto-fonts
 	noto-fonts-cjk-sans
 	noto-fonts-color-emoji
@@ -80,6 +87,7 @@
 
   environment.extraInit = ''
 	export DISPLAY=:0
+	export EDITOR=nvim
   '';
 
   system.stateVersion = "25.05"; # Did you read the comment?
