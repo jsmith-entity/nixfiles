@@ -4,7 +4,6 @@ let
 	create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 	configs = {
 		kitty = "kitty";
-		hypr = "hypr";
 		nvim = "nvim";
 		rofi = "rofi";
 		scripts = "scripts";
@@ -46,7 +45,5 @@ in
 		yazi
 		neofetch
 		gnumake
-
-		steam
 	];
 }

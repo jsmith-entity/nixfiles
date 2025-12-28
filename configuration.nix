@@ -20,8 +20,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.startx.enable = false;
 
+  services.xserver.windowManager.windowmaker.enable = true;
   services.displayManager.ly.enable = true;
 
   # Wayland & Hyprland
@@ -73,6 +73,9 @@
 	gcc
 	brave
 	neovim
+
+	windowmaker
+	xorg.xinit
   ];
 
 
