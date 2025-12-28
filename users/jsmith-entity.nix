@@ -47,6 +47,10 @@ in
 		neofetch
 		gnumake
 
+		typst
+		tinymist
+		websocat
+
 		opam
 		dune_3
 		ocamlformat
