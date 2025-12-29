@@ -18,6 +18,26 @@
   # Set your time zone.
   time.timeZone = "Australia/Perth";
 
+  # NVIDIA
+  hardware.graphics = {
+	  enable = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+
+  hardware.nvidia = {
+	  modesetting.enable = true;
+
+	  powerManagement.enable = false;
+	  powerManagement.finegrained = false;
+
+	  open = true;
+
+	  nvidiaSettings = true;
+
+	  package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -39,6 +59,9 @@
 	  enable = true;
 	  pulse.enable = true;
   };
+
+  # NOTE: yurp
+  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh.enable = true;
@@ -92,6 +115,7 @@
 	export DISPLAY=:0
 	export EDITOR=nvim
   '';
+
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }
