@@ -1,9 +1,9 @@
 {
 	description = "NixOS";
 	inputs = {
-		nixpks.url = "nixpkgs/nixos-25.05";
+		nixpks.url = "nixpkgs/nixos-25.11";
 		home-manager = {
-			url = "github:nix-community/home-manager/release-25.05";
+			url = "github:nix-community/home-manager/release-25.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";

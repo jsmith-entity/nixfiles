@@ -16,7 +16,7 @@ in
 {
 	home.username = "vastgamer83";
 	home.homeDirectory = "/home/vastgamer83";
-	home.stateVersion = "25.05";
+	home.stateVersion = "25.11";
 
 	# Default shell - zsh
 	programs.zsh = {
@@ -46,5 +46,12 @@ in
 		yazi
 		neofetch
 		gnumake
+		pavucontrol
+
+		steam
+		# modrinth-app
+		prismlauncher
+
+		discord
 	];
 }

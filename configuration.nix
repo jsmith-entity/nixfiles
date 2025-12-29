@@ -84,10 +84,12 @@
 
   programs.gnupg.agent.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     hyprland
+	tmux
     vim
     git
 	kitty
@@ -97,8 +99,7 @@
 	brave
 	neovim
 
-	windowmaker
-	xorg.xinit
+	vulkan-tools
   ];
 
 
@@ -116,6 +117,10 @@
 	export EDITOR=nvim
   '';
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  hardware.graphics.enable = true;
+  programs.steam.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
 }
