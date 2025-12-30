@@ -68,7 +68,7 @@
   users.users.jsmith-entity = {
 	shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -84,7 +84,6 @@
 
   programs.gnupg.agent.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -119,7 +118,6 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  hardware.graphics.enable = true;
   programs.steam.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
