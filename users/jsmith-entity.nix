@@ -23,6 +23,7 @@ in
 		enable = true;
 		shellAliases = {
 			c = "clear; ls";
+            newproj = "${dotfiles}/scripts/new-project.sh";
 		};
 		initContent = ''
 			source ${dotfiles}/zsh/.zshrc
@@ -51,11 +52,18 @@ in
 		tinymist
 		websocat
 
+        grim
+        slurp
+
 		opam
 		dune_3
 		ocamlformat
 		ocamlPackages.ocaml-lsp
 		ocamlPackages.odoc
 		ocamlPackages.utop
+
+        dbeaver-bin
+        img2pdf
+        pdftk
 	];
 }
