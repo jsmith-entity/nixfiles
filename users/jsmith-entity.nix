@@ -47,6 +47,8 @@ in
 		yazi
 		neofetch
 		gnumake
+        github-cli
+        ripgrep
 
 		typst
 		tinymist
@@ -65,5 +67,8 @@ in
         dbeaver-bin
         img2pdf
         pdftk
+
+        qbittorrent
+        vlc
 	];
 }
