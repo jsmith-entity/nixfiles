@@ -73,6 +73,14 @@
       tree
     ];
   };
+  users.users.vastgamer83 = {
+	shell = pkgs.zsh;
+	isNormalUser = true;
+	extraGroups = [ "wheel" ];
+	packages = with pkgs; [
+	  tree
+	];
+  };
 
   programs.gnupg.agent.enable = true;
 
