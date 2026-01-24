@@ -70,5 +70,8 @@ in
 
         qbittorrent
         vlc
+        nicotine-plus
+        tauon
+        nemo
 	];
 }

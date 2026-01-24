@@ -24,7 +24,7 @@
 						useGlobalPkgs = true;
 						useUserPackages = true;
 						users.jsmith-entity = import ./users/jsmith-entity.nix;
-                        users.vastgamer83 = import ./users/vastgamer83.nix;
+                        # users.vastgamer83 = import ./users/vastgamer83.nix;
 						backupFileExtension = "backup";
 					};
 				}

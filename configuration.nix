@@ -63,12 +63,14 @@
   # NOTE: yurp
   nixpkgs.config.allowUnfree = true;
 
+  users.groups.media = {};
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh.enable = true;
   users.users.jsmith-entity = {
 	shell = pkgs.zsh;
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "input" "media" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -76,7 +78,7 @@
   users.users.vastgamer83 = {
 	shell = pkgs.zsh;
 	isNormalUser = true;
-	extraGroups = [ "wheel" ];
+	extraGroups = [ "wheel" "media" ];
 	packages = with pkgs; [
 	  tree
 	];
