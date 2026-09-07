@@ -5,7 +5,7 @@ vim.o.swapfile = false
 vim.o.hlsearch = false
 vim.o.incsearch = true
 vim.o.termguicolors = true
-vim.o.scrolloff = 12
+vim.o.scrolloff = 16
 vim.o.signcolumn = "yes"
 vim.o.colorcolumn = "81"
 vim.o.tabstop = 4
@@ -29,6 +29,11 @@ vim.pack.add({
 	{ src = "https://github.com/elentok/open-link.nvim" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
 	{ src = "https://github.com/sylvanfranklin/omni-preview.nvim" },
+    { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/jiangmiao/auto-pairs" },
+    { src = "https://github.com/Aasim-A/scrollEOF.nvim" },
+    { src = "https://github.com/nyoom-engineering/oxocarbon.nvim" },
+    { src = "https://github.com/slugbyte/lackluster.nvim" },
 })
 
 vim.cmd("colorscheme vague")
@@ -40,6 +45,32 @@ vim.lsp.enable({
 	"ocamllsp",
 	"tinymist",
 	"ccls",
+    "pyright",
+    "djls",
+    "rust_analyzer"
+})
+vim.lsp.config["pyright"] = {
+    settings = {
+        python = {
+            pythonPath = "/home/jsmith-entity/work/ross/.venv/bin/python"
+        }
+    }
+}
+vim.lsp.config["djls"] = {
+    cmd = { '/home/jsmith-entity/work/ross/.venv/bin/djls', 'serve' },
+}
+
+require("conform").setup({
+    formatters_by_ft = {
+        cpp = { "clang_format" },
+        hpp = { "clang_format" },
+    },
+    formatters = {
+        clang_format = {
+            command = "clang-format",
+            args = { "-style=file" },
+        },
+    },
 })
 
 require("nvim-treesitter.configs").setup({
@@ -109,20 +140,25 @@ require("todo-comments").setup({})
 require("open-link").setup({})
 require("typst-preview").setup({
 	dependencies_bin = {
-		["tinymist"] = "/home/jsmith-entity/.nix-profile/bin/tinymist",
-		["websocat"] = "/home/jsmith-entity/.nix-profile/bin/websocat",
+		["tinymist"] = "/etc/profiles/per-user/jsmith-entity/bin/tinymist",
+		["websocat"] = "/etc/profiles/per-user/jsmith-entity/bin/websocat",
 	}
 })
 require("omni-preview").setup({})
 
+require("scrollEOF").setup()
+
 -- Keymaps
 vim.g.mapleader = " "
 local map = vim.keymap.set
-map("n", "<leader>lf", vim.lsp.buf.format)
+map("n", "<leader>lf", function()
+    require("conform").format({ async = true, lsp_fallback = false })
+end, { noremap=true })
 map("n", "<C-k>", "10k", { noremap = true, silent = true })
 map("n", "<C-j>", "10j", { noremap = true, silent = true })
 map("n", "<leader>pv", "<CMD>Oil<CR>")
 map("n", "<leader>pf", require("telescope.builtin").find_files)
+map('n', 'K', vim.lsp.buf.hover, { noremap = true })
 
 map("n", "<leader>h", function()
 	local harpoon = require("harpoon")
@@ -155,5 +191,4 @@ map("n", "gi", "<cmd>Telescope lsp_definitions<CR>", { noremap = true, silent = 
 
 -- Custom functions
 require("lsp-notify")
-require("eof-scrolloff")
 require("live-multigrep").setup()

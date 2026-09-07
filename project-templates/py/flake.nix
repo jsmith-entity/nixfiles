@@ -14,10 +14,7 @@
     in pkgs.mkShell {
       # create an environment with nodejs_24, pnpm, and yarn
       packages = with pkgs; [
-        gcc
-		gnumake
-		ccls
-        clang-tools
+        python3
       ];
 
       shellHook = ''

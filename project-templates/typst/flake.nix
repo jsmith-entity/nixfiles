@@ -1,5 +1,5 @@
 {
-  description = "cpp dev shell";
+  description = "typst";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -14,15 +14,11 @@
     in pkgs.mkShell {
       # create an environment with nodejs_24, pnpm, and yarn
       packages = with pkgs; [
-        gcc
-		gnumake
-		ccls
-        clang-tools
+      
       ];
 
       shellHook = ''
         alias c="clear; ls"
-        gcc -v
       '';
     };
   };
